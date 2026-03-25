@@ -4,136 +4,324 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Calcio - Lo Sport Più Bello del Mondo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #F7B801;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --gradient1: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            --gradient2: linear-gradient(135deg, #004E89 0%, #1B6CA8 100%);
+            --gradient3: linear-gradient(135deg, #FF6B35 0%, #004E89 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(180deg, #f8f9ff 0%, #f0f4ff 100%);
             min-height: 100vh;
         }
+
+        /* Header Moderno */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: var(--gradient2);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 78, 137, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 184, 1, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: slideInDown 0.8s ease;
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: slideInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Moderna */
+        .section {
+            background: white;
+            margin: 40px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient1);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .section li:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        /* Statistiche moderne */
+        .stat-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e0e8ff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat:hover::before {
+            left: 100%;
+        }
+
+        .stat:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+        }
+
+        .stat .number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            font-weight: 900;
+            background: var(--gradient1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat .label {
+            color: #666;
+            margin-top: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer Moderno */
+        footer {
+            background: var(--gradient2);
             color: white;
             text-align: center;
             padding: 40px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
+            font-size: 1.1em;
+            box-shadow: 0 -5px 20px rgba(0, 78, 137, 0.2);
         }
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .section {
-            background: white;
-            margin: 20px 0;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .section h2 {
-            color: #2a5298;
-            margin-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-        .section h3 {
-            color: #764ba2;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-        .section p {
-            margin-bottom: 12px;
-            text-align: justify;
-        }
-        .section ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        .section li {
-            margin-bottom: 8px;
-        }
-        .stat-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .stat {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            border-left: 4px solid #667eea;
-        }
-        .stat .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-        .stat .label {
-            color: #666;
-            margin-top: 5px;
-        }
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3em;
+            }
+            
+            header p {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .stat-box {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>⚽ IL CALCIO ⚽</h1>
-        <p>Lo sport più amato e praticato nel mondo</p>
+        <p>✨ Lo sport più amato e praticato nel mondo ✨</p>
     </header>
 
     <container>
         <div class="section">
-            <h2>Che cos'è il Calcio?</h2>
+            <h2>🎯 Che cos'è il Calcio?</h2>
             <p>Il calcio è uno sport di squadra praticato da due formazioni di undici giocatori con l'obiettivo di portare un pallone sferico nella porta avversaria per realizzare una rete. È il gioco più popolare al mondo, con miliardi di appassionati e praticanti su tutti i continenti.</p>
-            <p>Il calcio moderno nasce in Inghilterra nel 1863, quando la Federazione calcistica inglese codifica le prime regole ufficiali del gioco.</p>
+            <p>Il calcio moderno nasce in Inghilterra nel 1863, quando la Federazione calcistica inglese codifica le prime regole ufficiali del gioco. Da allora, è diventato un fenomeno globale che unisce persone di tutte le culture e nazionalità.</p>
         </div>
 
         <div class="section">
-            <h2>Le Principali Competizioni</h2>
-            <h3>Internazionali</h3>
+            <h2>🏆 Le Principali Competizioni</h2>
+            <h3>🌍 Competizioni Internazionali</h3>
             <ul>
-                <li><strong>Coppa del Mondo FIFA</strong> - Il campionato mondiale più prestigioso</li>
-                <li><strong>Campionato Europeo (EURO)</strong> - La competizione tra le nazionali europee</li>
-                <li><strong>Copa América</strong> - Il torneo tra le nazionali del Sud America</li>
-                <li><strong>Olimpiadi</strong> - Competizione calcistica durante i Giochi Olimpici</li>
+                <li><strong>🏅 Coppa del Mondo FIFA</strong> - Il campionato mondiale più prestigioso, disputato ogni 4 anni</li>
+                <li><strong>🇪🇺 Campionato Europeo (EURO)</strong> - La competizione tra le nazionali europee</li>
+                <li><strong>🌎 Copa América</strong> - Il più antico torneo internazionale tra le nazionali del Sud America</li>
+                <li><strong>🥇 Olimpiadi</strong> - Competizione calcistica durante i Giochi Olimpici</li>
             </ul>
-            <h3>Club</h3>
+            <h3>🏟️ Competizioni tra Club</h3>
             <ul>
-                <li><strong>UEFA Champions League</strong> - La massima competizione europea tra club</li>
-                <li><strong>Serie A (Italia)</strong> - Il massimo campionato italiano</li>
-                <li><strong>Premier League (Inghilterra)</strong> - Il più ricco campionato europeo</li>
-                <li><strong>La Liga (Spagna)</strong> - Campionato spagnolo con i migliori talenti</li>
-                <li><strong>Bundesliga (Germania)</strong> - Campionato tedesco con atmosfere incredibili</li>
+                <li><strong>👑 UEFA Champions League</strong> - La massima competizione europea tra club, il sogno di ogni squadra</li>
+                <li><strong>🇮🇹 Serie A (Italia)</strong> - Il massimo campionato italiano con tradizione calcistica secolare</li>
+                <li><strong>🇬🇧 Premier League (Inghilterra)</strong> - Il più ricco e competitivo campionato europeo</li>
+                <li><strong>🇪🇸 La Liga (Spagna)</strong> - Campionato spagnolo con i migliori talenti mondiali</li>
+                <li><strong>🇩🇪 Bundesliga (Germania)</strong> - Campionato tedesco con atmosfere incredibili negli stadi</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>Statistiche Interessanti</h2>
+            <h2>📊 Statistiche Interessanti</h2>
             <div class="stat-box">
                 <div class="stat">
-                    <div class="number">4 miliardi+</div>
+                    <div class="number">4B+</div>
                     <div class="label">Tifosi nel Mondo</div>
                 </div>
                 <div class="stat">
@@ -141,8 +329,8 @@
                     <div class="label">Federazioni Nazionali FIFA</div>
                 </div>
                 <div class="stat">
-                    <div class="number">90-120</div>
-                    <div class="label">Minuti di Gioco</div>
+                    <div class="number">90'</div>
+                    <div class="label">Minuti di Gioco Regolamentare</div>
                 </div>
                 <div class="stat">
                     <div class="number">11</div>
@@ -152,46 +340,47 @@
         </div>
 
         <div class="section">
-            <h2>Le Regole Fondamentali</h2>
+            <h2>⚖️ Le Regole Fondamentali</h2>
             <ul>
-                <li>Una partita dura 90 minuti divisi in due tempi di 45 minuti</li>
-                <li>Ogni squadra ha 11 giocatori: 10 di movimento e 1 portiere</li>
-                <li>Il pallone può essere colpito con qualsiasi parte del corpo tranne le mani (eccetto il portiere nella propria area)</li>
-                <li>Una rete vale 1 punto</li>
-                <li>L'arbitro può ammonire con cartellino giallo o espellere con cartellino rosso</li>
-                <li>Il fuorigioco impedisce ai giocatori di stare troppo avanti rispetto ai difensori avversari</li>
-                <li>I falli sono puniti con calci di rigore o calci piazzati</li>
+                <li>⏱️ Una partita dura 90 minuti divisi in due tempi di 45 minuti</li>
+                <li>👥 Ogni squadra ha 11 giocatori: 10 di movimento e 1 portiere</li>
+                <li>🦶 Il pallone può essere colpito con qualsiasi parte del corpo tranne le mani (eccetto il portiere nella propria area)</li>
+                <li>🎯 Una rete realizzata vale 1 punto</li>
+                <li>🟨 L'arbitro può ammonire con cartellino giallo o espellere con cartellino rosso</li>
+                <li>🚫 Il fuorigioco impedisce ai giocatori di stare troppo avanti rispetto ai difensori avversari</li>
+                <li>⚡ I falli sono puniti con calci di rigore o calci piazzati</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>Perché il Calcio è lo Sport Preferito?</h2>
-            <h3>Accessibilità</h3>
-            <p>Non serve equipaggiamento costoso, solo un pallone e uno spazio. È praticabile da chiunque, indipendentemente dall'età o dalla condizione fisica.</p>
-            <h3>Global e Inclusivo</h3>
-            <p>Supera le barriere linguistiche, culturali e geografiche. Unisce persone di tutto il mondo intorno a una passione comune.</p>
-            <h3>Spettacolo e Emozione</h3>
-            <p>Ogni partita è una storia di sacrificio, strategia, tecnica e passione. Gli attimi decisivi creano emozioni indimenticabili.</p>
-            <h3>Comunità</h3>
-            <p>Il calcio crea comunità di tifosi, amicizie e legami che durano una vita. Lo stadio è una festa di colori e passione.</p>
+            <h2>❤️ Perché il Calcio è lo Sport Preferito?</h2>
+            <h3>🆓 Accessibilità</h3>
+            <p>Non serve equipaggiamento costoso, solo un pallone e uno spazio. È praticabile da chiunque, indipendentemente dall'età, genere o condizione fisica. Nei campi di periferia come nei maggiori stadi del mondo, il gioco è sempre lo stesso: semplice, puro e bellissimo.</p>
+            <h3>🌐 Global e Inclusivo</h3>
+            <p>Il calcio supera le barriere linguistiche, culturali e geografiche. Unisce persone di tutto il mondo intorno a una passione comune. Un gol a Buenos Aires provoca la stessa gioia di un gol a Milano.</p>
+            <h3>🎬 Spettacolo e Emozione</h3>
+            <p>Ogni partita è una storia di sacrificio, strategia, tecnica e passione. Gli attimi decisivi creano emozioni indimenticabili che rimangono nel cuore dei tifosi per sempre.</p>
+            <h3>🤝 Comunità e Fratellanza</h3>
+            <p>Il calcio crea comunità di tifosi, amicizie e legami che durano una vita. Lo stadio è una festa di colori, cori e passione condivisa da migliaia di persone unite da un'unica fede calcistica.</p>
         </div>
 
         <div class="section">
-            <h2>Legende del Calcio</h2>
-            <p>Nel corso della storia, il calcio ha visto emergere straordinari talenti che hanno lasciato un segno indelebile nello sport:</p>
+            <h2>🌟 Legende del Calcio</h2>
+            <p>Nel corso della storia, il calcio ha visto emergere straordinari talenti che hanno lasciato un segno indelebile nello sport e nel cuore dei tifosi:</p>
             <ul>
-                <li><strong>Pelé</strong> - Tre volte campione del mondo</li>
-                <li><strong>Diego Maradona</strong> - Genio del calcio argentino</li>
-                <li><strong>Johan Cruyff</strong> - Innovatore olandese</li>
-                <li><strong>Franz Beckenbauer</strong> - Rivoluzionario della difesa tedesca</li>
-                <li><strong>Zinedine Zidane</strong> - Maestro francese del calcio</li>
-                <li><strong>Cristiano Ronaldo e Lionel Messi</strong> - I giganti del calcio moderno</li>
+                <li><strong>⭐ Pelé</strong> - Tre volte campione del mondo, re del calcio brasiliano</li>
+                <li><strong>🎭 Diego Maradona</strong> - Genio indiscusso del calcio argentino, guida la Francia alla gloria</li>
+                <li><strong>🔵 Johan Cruyff</strong> - Innovatore olandese che ha rivoluzionato il gioco con la sua creatività</li>
+                <li><strong>🏰 Franz Beckenbauer</strong> - Rivoluzionario della difesa tedesca, il più elegante tra i difensori</li>
+                <li><strong>✨ Zinedine Zidane</strong> - Maestro francese del calcio, vincitore di tutto</li>
+                <li><strong>🐐🐐 Cristiano Ronaldo</strong> - Macchina calcistica portoghese di incredibile dedizione</li>
+                <li><strong>🐐🐐 Lionel Messi</strong> - Il più grande magician del calcio moderno, argentino immortale</li>
             </ul>
         </div>
     </container>
 
     <footer>
-        <p>&copy; 2026 Il Calcio - Lo Sport Più Bello del Mondo 🏟️</p>
+        <p>⚽ &copy; 2026 Il Calcio - Lo Sport Più Bello del Mondo 🏟️ ⚽</p>
     </footer>
 </body>
 </html>
